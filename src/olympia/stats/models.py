@@ -78,8 +78,7 @@ class DownloadCount(StatsSearchMixin, models.Model):
 class UpdateCount(StatsSearchMixin, models.Model):
     # Has an index `addon_id` in our dev, stage and prod database
     addon = models.ForeignKey('addons.Addon')
-    # Has an index named `count` in our dev, stage and prod database
-    count = models.PositiveIntegerField(db_index=True)
+    count = models.PositiveIntegerField()
     # Has an index named `date` in our dev, stage and prod database
     date = models.DateField(db_index=True)
     versions = StatsDictField(db_column='version', null=True)
